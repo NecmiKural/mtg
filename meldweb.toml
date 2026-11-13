@@ -1,0 +1,24 @@
+# Meldweb Curator's settings.
+
+[printings]
+# Which printing of a card to offer first. Each rule is a Scryfall query
+# over one printing. The first rule that tells two printings apart
+# decides, and later ones only break ties; untold apart, newest first.
+# A rule shaped `!"Sol Ring" set:c21 cn:263` pins one card's printing.
+rank = [
+  { avoid = "is:digital" },
+  { avoid = "border:gold or border:silver or is:oversized or is:playtest or st:memorabilia" },
+  { avoid = "-lang:en" },
+  { prefer = "t:basic is:fullart" },
+  { avoid = "is:textless" },
+  { avoid = "set:mp2" },
+  { avoid = "is:flavorname" },
+  { avoid = "is:sourcematerial" },
+  { avoid = "is:showcase or frame:old or frame:future or frame:etched or is:poster" },
+  { avoid = "is:ub" },
+]
+
+[upstream.robot-nazgul]
+# robot-nazgul is a fork of cramt's robot-nazgul, and takes their changes from there.
+url = "https://github.com/cramt/mtg"
+deck = "robot-nazgul"
